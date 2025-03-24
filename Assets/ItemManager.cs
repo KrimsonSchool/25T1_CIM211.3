@@ -14,6 +14,7 @@ public class ItemManager : MonoBehaviour
     void Update()
     {
         Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out RaycastHit hit);
+        //check if is "ITEM"
         if (hit.collider != null)
         {
             itemText.text = hit.collider.gameObject.name;
