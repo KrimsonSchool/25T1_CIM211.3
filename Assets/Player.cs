@@ -4,10 +4,21 @@ public class Player : MonoBehaviour
 {
     public float speed;
     public float rotSpeed;
+
+    private int defaultFOV;
+    private int zoomFOV;
+    
+    //STANDARDS:
+    //PUBLIC = SOMETHING PLAYER CAN EDIT
+    //PRIVATE = SOMETHING PLAYER CAN'T EDIT
+    //SERIALIZED = SOMETHING THAT CAN BE EDITED IN EDITOR
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        defaultFOV = 60;
+        zoomFOV = 30;
+        
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
@@ -19,5 +30,14 @@ public class Player : MonoBehaviour
         
         transform.Rotate(new Vector3(0, Input.GetAxis("Mouse X") * rotSpeed * Time.deltaTime, 0));
         Camera.main.gameObject.transform.Rotate(new Vector3(-Input.GetAxis("Mouse Y") * rotSpeed * Time.deltaTime,0, 0));
+
+        if (Input.GetMouseButton(1))
+        {
+            Camera.main.fieldOfView = zoomFOV;
+        }
+        else
+        {
+            Camera.main.fieldOfView = defaultFOV;
+        }
     }
 }
