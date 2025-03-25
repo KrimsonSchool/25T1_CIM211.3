@@ -13,7 +13,7 @@ public class ItemManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out RaycastHit hit);
+        Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward * 1, out RaycastHit hit);
         //check if is "ITEM"
         if (hit.collider != null)
         {
