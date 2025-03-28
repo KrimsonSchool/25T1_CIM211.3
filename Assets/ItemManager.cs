@@ -17,11 +17,18 @@ public class ItemManager : MonoBehaviour
         //check if is "ITEM"
         if (hit.collider != null)
         {
-            itemText.text = hit.collider.gameObject.name;
+            if (hit.collider.gameObject.CompareTag("Identifiable"))
+            {
+                itemText.text = hit.collider.gameObject.name;
+            }
+            else
+            {
+                itemText.text = "";
+            }
         }
         else
         {
-            itemText.text = "[Nothing in range]";
+            itemText.text = "";
         }
     }
 }
