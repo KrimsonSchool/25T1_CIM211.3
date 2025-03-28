@@ -23,6 +23,7 @@ public class Anomaly : MonoBehaviour
     {
         if (Random.Range(0, 100) < chance)
         {
+            gameObject.tag = "Identifiable";
             if (move)
             {
                 transform.position = newPosition;
