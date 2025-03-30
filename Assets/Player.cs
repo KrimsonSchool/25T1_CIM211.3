@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -38,6 +40,14 @@ public class Player : MonoBehaviour
         else
         {
             Camera.main.fieldOfView = defaultFOV;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Respawn")
+        {
+            SceneManager.LoadScene(1);
         }
     }
 }
