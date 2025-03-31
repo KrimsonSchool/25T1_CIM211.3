@@ -49,5 +49,10 @@ public class Player : MonoBehaviour
         {
             SceneManager.LoadScene(1);
         }
+
+        if (other.tag == "Finish")
+        {
+            transform.position = new Vector3(transform.position.x,1, transform.position.z-120);
+        }
     }
 }
