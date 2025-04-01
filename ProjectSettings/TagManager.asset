@@ -7,6 +7,8 @@ TagManager:
   - Identifiable
   - Ground
   - Win
+  - Forward
+  - Backward
   layers:
   - Default
   - TransparentFX

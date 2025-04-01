@@ -1874,7 +1874,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spd: 0
   spd_m: 100
-  jph: 0.4
+  jph: 0.5
   mtl:
   - {fileID: 2100000, guid: 7573fc5038aa0e543afdc4d5d20b1b3d, type: 2}
   - {fileID: 2100000, guid: eb880c8b4726f8841ad72a469cc2b46d, type: 2}
