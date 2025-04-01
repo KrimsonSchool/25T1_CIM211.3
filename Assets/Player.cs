@@ -45,17 +45,17 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Respawn")
+        if (other.CompareTag("Respawn"))
         {
             SceneManager.LoadScene(1);
         }
 
-        if (other.tag == "Forward")
+        if (other.CompareTag("Forward"))
         {
             transform.position = new Vector3(transform.position.x,1, transform.position.z-120);
             FindFirstObjectByType<LoopSystem>().Loop();
         }
-        if (other.tag == "Backward")
+        if (other.CompareTag("Backward"))
         {
             transform.position = new Vector3(transform.position.x,1, transform.position.z+120);
         }

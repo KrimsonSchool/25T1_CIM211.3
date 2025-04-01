@@ -7,31 +7,33 @@ public class Anomaly : MonoBehaviour
     //appear
     //disappear
     //change
-    [SerializeField] private int chance;
-    
+    [SerializeField] private int loopToChange;
+
     [SerializeField] private bool move;
     [SerializeField] private Vector3 newPosition;
-    
+
     [SerializeField] private GameObject obj;
     [SerializeField] private bool appear;
     [SerializeField] private bool disappear;
-    
+
     [SerializeField] private bool change;
     [SerializeField] private GameObject otherObj;
 
-    void OnBecameInvisible()
+    public void LoopCheck(int loop)
     {
-        if (Random.Range(0, 100) < chance)
+        if (loop == loopToChange)
         {
             gameObject.tag = "Identifiable";
             if (move)
             {
                 transform.position = newPosition;
             }
+
             if (appear)
             {
                 obj.SetActive(true);
             }
+
             if (disappear)
             {
                 obj.SetActive(false);
@@ -43,15 +45,5 @@ public class Anomaly : MonoBehaviour
                 otherObj.SetActive(true);
             }
         }
-    }
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
     }
 }
