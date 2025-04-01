@@ -54,7 +54,7 @@ public class Radio : MonoBehaviour
             audio.Play();
         }
 
-        if (index >= songs.Length - 1)
+        if (index > songs.Length - 1)
         {
             index = 0;
             audio.clip = songs[index];
