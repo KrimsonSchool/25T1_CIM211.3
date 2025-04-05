@@ -1,0 +1,7 @@
+(Scale) [Rotation] <Transform>
+----------------------------------------------------------------------------------------------------
+CAPPY PLACEMENT (Relative to local position of "Cap" bone, or "JointRoot" for Cap-Throw models):
+
+Happi Headband: (1, 1, 1) [-25, 0, 0] <0, 17, 25>
+Happi Headband (Cap Throw): (1.5, 1.5, 1.5) [-10, 0, 0] <0, -2, 53>
+----------------------------------------------------------------------------------------------------
