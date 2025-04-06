@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 
 public class DefaultSettings : MonoBehaviour
@@ -19,6 +20,11 @@ public class DefaultSettings : MonoBehaviour
 
     private Animator an;
 
+    public GameObject particles;
+
+    public TextMeshProUGUI potsText;
+    int pots = 0;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -32,6 +38,8 @@ public class DefaultSettings : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        potsText.text = ": " + pots;
+        
         inputting = Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0;
         //print(grounded);
 
@@ -103,6 +111,8 @@ public class DefaultSettings : MonoBehaviour
     {
         if (other.tag == "Collectable")
         {
+            Instantiate(particles, other.transform.position, Quaternion.identity);
+            pots++;
             Destroy(other.gameObject);
         }
     }
