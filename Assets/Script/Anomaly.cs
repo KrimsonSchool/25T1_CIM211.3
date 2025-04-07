@@ -18,6 +18,14 @@ public class Anomaly : MonoBehaviour
 
     [SerializeField] private bool change;
     [SerializeField] private GameObject otherObj;
+    
+    [SerializeField] private bool changeMat;
+    [SerializeField] private Material newMat;
+    
+    [SerializeField] private bool enableScript;
+    [SerializeField] private  MonoBehaviour script;
+    
+
 
     public void LoopCheck(int loop)
     {
@@ -43,6 +51,16 @@ public class Anomaly : MonoBehaviour
             {
                 obj.SetActive(false);
                 otherObj.SetActive(true);
+            }
+
+            if (changeMat)
+            {
+                GetComponent<Renderer>().material = newMat;
+            }
+
+            if (enableScript)
+            {
+                script.enabled = true;
             }
         }
     }
