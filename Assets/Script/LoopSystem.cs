@@ -18,6 +18,7 @@ public class LoopSystem : MonoBehaviour
     public void Loop()
     {
         loop++;
+        FindFirstObjectByType<Sanity>().sanity++;
         
         Anomaly[] anomalies = GameObject.FindObjectsOfType<Anomaly>();
         foreach (var anomaly in anomalies)

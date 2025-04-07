@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-    [SerializeField] private bool cassette;
-    [SerializeField] private AudioClip audioClip;
+    [SerializeField] private ItemType type;
+    private AudioClip audioClip; //get from Resources
+    private DiaryEntry diaryEntry; //get from Resources
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -18,10 +19,17 @@ public class Item : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 FindFirstObjectByType<ItemManager>().selectedItem = null;
-                if (cassette)
+                if (type == ItemType.Tape)
                 {
                     FindFirstObjectByType<CassettePlayer>().PlayAudio(audioClip);
                     Destroy(gameObject);
+                }
+
+                if (type == ItemType.Diary)
+                {
+                    DiaryEntry[] allEntries = Resources.LoadAll<DiaryEntry>("DiaryEntries");
+                    diaryEntry = allEntries[FindFirstObjectByType<Sanity>().sanity];
+                    FindFirstObjectByType<DiaryReader>().Read(diaryEntry.entry);
                 }
             }
         }

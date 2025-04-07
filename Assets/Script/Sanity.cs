@@ -7,6 +7,9 @@ public class Sanity : MonoBehaviour
 
     private Vignette vg;
     private ChromaticAberration chrom;
+
+    public int sanity;//goes up per loop, down when listen to therapy
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -18,7 +21,7 @@ public class Sanity : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        vg.intensity.value += Time.deltaTime/1000;
-        chrom.intensity.value += Time.deltaTime/1000;
+        vg.intensity.value += Time.deltaTime/(1000/(sanity+1));
+        chrom.intensity.value += Time.deltaTime/(1000/(sanity+1));
     }
 }
