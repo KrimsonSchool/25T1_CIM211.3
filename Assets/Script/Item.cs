@@ -9,6 +9,8 @@ public class Item : MonoBehaviour
     
     ItemManager itemManager;
 
+
+    private int sanity;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -20,6 +22,8 @@ public class Item : MonoBehaviour
     {
         if (itemManager.selectedItem == this)
         {
+            sanity = FindFirstObjectByType<Sanity>().sanity;
+            
             if (type == ItemType.Diary)
             {
                 if (diaryEntry != null)
@@ -46,19 +50,21 @@ public class Item : MonoBehaviour
     public void CheckItem()
     {
         FindFirstObjectByType<ItemManager>().selectedItem = null;
+        
         if (type == ItemType.Tape)
         {
+            AudioClip[] allClips = Resources.LoadAll<AudioClip>("Tapes");
+            audioClip = allClips[sanity];
             FindFirstObjectByType<CassettePlayer>().PlayAudio(audioClip);
+            
             Destroy(gameObject);
         }
-
         if (type == ItemType.Diary)
         {
             DiaryEntry[] allEntries = Resources.LoadAll<DiaryEntry>("DiaryEntries");
-            print(allEntries.Length);
-            if (!allEntries[FindFirstObjectByType<Sanity>().sanity].read)
+            if (!allEntries[sanity].read)
             {
-                diaryEntry = allEntries[FindFirstObjectByType<Sanity>().sanity];
+                diaryEntry = allEntries[sanity];
             }
             else
             {
