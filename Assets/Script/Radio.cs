@@ -27,8 +27,8 @@ public class Radio : MonoBehaviour
 
         songs = Resources.LoadAll<AudioClip>(_path);
         
-        print(_path);
-        print(Resources.LoadAll(_path).Length);
+        //print(_path);
+        //print(Resources.LoadAll(_path).Length);
         
         audio.clip = songs[index];
         audio.Play();
