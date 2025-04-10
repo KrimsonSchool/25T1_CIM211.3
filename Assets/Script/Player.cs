@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     //SERIALIZED = SOMETHING THAT CAN BE EDITED IN EDITOR
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+    
     void Start()
     {
         defaultFOV = 60;
@@ -29,9 +30,12 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //print("pos x: " +Mathf.Abs(transform.position.x));
+        
         transform.position += (transform.forward * Input.GetAxis("Vertical") * speed * Time.deltaTime) + (transform.right * Input.GetAxis("Horizontal") * speed * Time.deltaTime);
         
         transform.Rotate(new Vector3(0, Input.GetAxis("Mouse X") * rotSpeed * Time.deltaTime, 0));
+        
         Camera.main.gameObject.transform.Rotate(new Vector3(-Input.GetAxis("Mouse Y") * rotSpeed * Time.deltaTime,0, 0));
 
         if (Input.GetMouseButton(1))
@@ -43,8 +47,12 @@ public class Player : MonoBehaviour
             Camera.main.fieldOfView = defaultFOV;
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if (Mathf.Abs(transform.position.x) > 10)
         {
+            speed = 6 - (Mathf.Abs(transform.position.x) / 5);
+            
+            speed = Mathf.Clamp(speed, 0, 6);
+            //if speed 0, fade to black, restart
         }
     }
 
