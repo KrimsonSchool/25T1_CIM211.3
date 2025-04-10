@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     private int defaultFOV;
     private int zoomFOV;
     
+    
     //STANDARDS:
     //PUBLIC = SOMETHING PLAYER CAN EDIT
     //PRIVATE = SOMETHING PLAYER CAN'T EDIT
@@ -40,6 +41,10 @@ public class Player : MonoBehaviour
         else
         {
             Camera.main.fieldOfView = defaultFOV;
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
         }
     }
 
