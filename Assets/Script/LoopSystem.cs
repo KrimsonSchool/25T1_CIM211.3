@@ -1,12 +1,13 @@
+using System;
 using UnityEngine;
 
 public class LoopSystem : MonoBehaviour
 {
+    public event Action SanityRose;
     private int loop;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -17,6 +18,8 @@ public class LoopSystem : MonoBehaviour
 
     public void Loop()
     {
+        SanityRose?.Invoke();
+        
         loop++;
         FindFirstObjectByType<Sanity>().sanity++;
         

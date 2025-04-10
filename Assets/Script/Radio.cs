@@ -38,7 +38,7 @@ public class Radio : MonoBehaviour
     void Update()
     {
         checkTimer += Time.deltaTime;
-        if (checkTimer >= 1)
+        if (checkTimer >= audio.clip.length)
         {
             CheckMusic();
             checkTimer = 0;
