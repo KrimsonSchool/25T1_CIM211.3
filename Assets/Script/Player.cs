@@ -54,6 +54,13 @@ public class Player : MonoBehaviour
             speed = Mathf.Clamp(speed, 0, 6);
             //if speed 0, fade to black, restart
         }
+
+
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene(1);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
