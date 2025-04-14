@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2529300027697901491}
   - component: {fileID: -7654735473951513954}
   m_Layer: 0
-  m_Name: Entry 8
+  m_Name: Entry 1.5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,8 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f4341df0d6c5224b803f64bb81e789a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entry: 'May 20th 2011
+  entry: 'march 29th 2010
 
 
-    Mum has become kinder. maybe im finally a good daughter.
-    I love her and i miss her kindness'
+    Why does she hate me. It must be my fault. Im not
+    trying enough. i miss dad'

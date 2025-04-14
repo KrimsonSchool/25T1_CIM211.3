@@ -12,6 +12,8 @@ public class Item : MonoBehaviour
 
     private int sanity;
 
+    private DiaryEntry[] allEntries;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -47,7 +49,7 @@ public class Item : MonoBehaviour
 
         if (type == ItemType.Diary)
         {
-            DiaryEntry[] allEntries = Resources.LoadAll<DiaryEntry>("DiaryEntries");
+            allEntries = Resources.LoadAll<DiaryEntry>("DiaryEntries");
 
             diaryEntry = allEntries[sanity];
 
