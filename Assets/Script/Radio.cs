@@ -7,17 +7,17 @@ using UnityEditor;
 
 public class Radio : MonoBehaviour
 {
-    AudioSource audio;
+   private AudioSource _audio;
     
     private string _path;
     public AudioClip[] songs;
-    private int index;
+    private int _index;
 
-    private float checkTimer;
+    private float _checkTimer;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        audio = GetComponent<AudioSource>();
+        _audio = GetComponent<AudioSource>();
         _path  = "Radio";
 
         /*if (SystemInfo.operatingSystem.Contains("Mac"))
@@ -30,35 +30,35 @@ public class Radio : MonoBehaviour
         //print(_path);
         //print(Resources.LoadAll(_path).Length);
         
-        audio.clip = songs[index];
-        audio.Play();
+        _audio.clip = songs[_index];
+        _audio.Play();
     }
 
     // Update is called once per frame
     void Update()
     {
-        checkTimer += Time.deltaTime;
-        if (checkTimer >= audio.clip.length)
+        _checkTimer += Time.deltaTime;
+        if (_checkTimer >= _audio.clip.length)
         {
             CheckMusic();
-            checkTimer = 0;
+            _checkTimer = 0;
         }
     }
 
     public void CheckMusic()
     {
-        if (!audio.isPlaying && index < songs.Length-1)
+        if (!_audio.isPlaying && _index < songs.Length-1)
         {
-            index++;
-            audio.clip = songs[index];
-            audio.Play();
+            _index++;
+            _audio.clip = songs[_index];
+            _audio.Play();
         }
 
-        if (index > songs.Length - 1)
+        if (_index > songs.Length - 1)
         {
-            index = 0;
-            audio.clip = songs[index];
-            audio.Play();
+            _index = 0;
+            _audio.clip = songs[_index];
+            _audio.Play();
         }
     }
 }
