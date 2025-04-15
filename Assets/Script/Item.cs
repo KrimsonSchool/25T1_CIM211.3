@@ -43,6 +43,9 @@ public class Item : MonoBehaviour
             AudioClip[] allClips = Resources.LoadAll<AudioClip>("Tapes");
             audioClip = allClips[sanity];
             FindFirstObjectByType<CassettePlayer>().PlayAudio(audioClip);
+            sanity--;
+            
+            gameObject.SetActive(false);
         }
 
         if (type == ItemType.Diary)

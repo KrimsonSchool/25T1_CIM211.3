@@ -25,6 +25,8 @@ public class RandomLoc : MonoBehaviour
         transform.rotation = locs[rng].transform.rotation;
         
         print("Randomising loc out of " + locs.Length);
+        
+        transform.GetChild(0).gameObject.SetActive(true);
     }
 
 

@@ -20,8 +20,12 @@ public class Player : MonoBehaviour
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
+    public AudioClip[] zoomSounds;
+
     private bool _paused;
     public GameObject pauseMenu;
+
+    public AudioSource camSource;
     
     void Start()
     {
@@ -33,6 +37,8 @@ public class Player : MonoBehaviour
         
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        
+        Time.timeScale = 1;
     }
 
     // Update is called once per frame
@@ -46,18 +52,21 @@ public class Player : MonoBehaviour
         
         Camera.main.gameObject.transform.Rotate(new Vector3(-Input.GetAxis("Mouse Y") * rotSpeed * Time.deltaTime,0, 0));
 
-        if (Input.GetMouseButton(1))
+        if (Input.GetMouseButtonDown(1))
         {
             Camera.main.fieldOfView = _zoomFOV;
             FindAnyObjectByType<Sanity>().grain.intensity.value = 1;
             FindAnyObjectByType<Sanity>().grain.size.value = 2;
+            
+            camSource.PlayOneShot(zoomSounds[0]);
         }
-        else
+        if(Input.GetMouseButtonUp(1))
         {
             Camera.main.fieldOfView = _defaultFOV;
             FindAnyObjectByType<Sanity>().grain.intensity.value = _defaultGrainIntensity;
             FindAnyObjectByType<Sanity>().grain.size.value = _defaultGrainSize;
-
+            
+            camSource.PlayOneShot(zoomSounds[1]);
         }
 
         if (Mathf.Abs(transform.position.x) > 10)
