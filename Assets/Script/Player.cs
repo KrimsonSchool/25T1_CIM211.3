@@ -8,27 +8,28 @@ public class Player : MonoBehaviour
     public float speed;
     public float rotSpeed;
 
-    private int defaultFOV;
-    private int zoomFOV;
+    private int _defaultFOV;
+    private int _zoomFOV;
 
-    private float defaultGrainSize;
-    private float defaultGrainIntensity;
+    private float _defaultGrainSize;
+    private float _defaultGrainIntensity;
     //STANDARDS:
     //PUBLIC = SOMETHING PLAYER CAN EDIT
     //PRIVATE = SOMETHING PLAYER CAN'T EDIT
     //SERIALIZED = SOMETHING THAT CAN BE EDITED IN EDITOR
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    
-    
+
+    private bool _paused;
+    public GameObject pauseMenu;
     
     void Start()
     {
-        defaultFOV = 60;
-        zoomFOV = 30;
+        _defaultFOV = 60;
+        _zoomFOV = 30;
         
-        defaultGrainSize = 1;
-        defaultGrainIntensity = 0.5f;
+        _defaultGrainSize = 1;
+        _defaultGrainIntensity = 0.5f;
         
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -47,15 +48,15 @@ public class Player : MonoBehaviour
 
         if (Input.GetMouseButton(1))
         {
-            Camera.main.fieldOfView = zoomFOV;
+            Camera.main.fieldOfView = _zoomFOV;
             FindAnyObjectByType<Sanity>().grain.intensity.value = 1;
             FindAnyObjectByType<Sanity>().grain.size.value = 2;
         }
         else
         {
-            Camera.main.fieldOfView = defaultFOV;
-            FindAnyObjectByType<Sanity>().grain.intensity.value = defaultGrainIntensity;
-            FindAnyObjectByType<Sanity>().grain.size.value = defaultGrainSize;
+            Camera.main.fieldOfView = _defaultFOV;
+            FindAnyObjectByType<Sanity>().grain.intensity.value = _defaultGrainIntensity;
+            FindAnyObjectByType<Sanity>().grain.size.value = _defaultGrainSize;
 
         }
 
@@ -71,7 +72,29 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            SceneManager.LoadScene("Menu");
+            //SceneManager.LoadScene("Menu");
+            //pause menu
+            if (!_paused)
+            {
+                Pause();
+                Time.timeScale = 0;
+                pauseMenu.SetActive(true);
+                _paused = true;
+                
+                Cursor.lockState = CursorLockMode.Confined;
+                Cursor.visible = true;
+            }
+            else
+            {
+                UnPause();
+                Time.timeScale = 1;
+                pauseMenu.SetActive(false);
+                _paused = false;
+                
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+            }
+            
         }
     }
 
@@ -90,6 +113,24 @@ public class Player : MonoBehaviour
         if (other.CompareTag("Backward"))
         {
             transform.position = new Vector3(transform.position.x,1, transform.position.z+120);
+        }
+    }
+
+    public void Pause()
+    {
+        AudioSource[] asses = FindObjectsByType<AudioSource>(FindObjectsSortMode.None);
+        foreach (var ass in asses)
+        {
+            ass.Pause();
+        }
+    }
+
+    public void UnPause()
+    {
+        AudioSource[] asses = FindObjectsByType<AudioSource>(FindObjectsSortMode.None);
+        foreach (var ass in asses)
+        {
+            ass.UnPause();
         }
     }
 }
