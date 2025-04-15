@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
@@ -9,8 +10,9 @@ public class Player : MonoBehaviour
 
     private int defaultFOV;
     private int zoomFOV;
-    
-    
+
+    private float defaultGrainSize;
+    private float defaultGrainIntensity;
     //STANDARDS:
     //PUBLIC = SOMETHING PLAYER CAN EDIT
     //PRIVATE = SOMETHING PLAYER CAN'T EDIT
@@ -18,10 +20,15 @@ public class Player : MonoBehaviour
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     
+    
+    
     void Start()
     {
         defaultFOV = 60;
         zoomFOV = 30;
+        
+        defaultGrainSize = 1;
+        defaultGrainIntensity = 0.5f;
         
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -41,10 +48,15 @@ public class Player : MonoBehaviour
         if (Input.GetMouseButton(1))
         {
             Camera.main.fieldOfView = zoomFOV;
+            FindAnyObjectByType<Sanity>().grain.intensity.value = 1;
+            FindAnyObjectByType<Sanity>().grain.size.value = 2;
         }
         else
         {
             Camera.main.fieldOfView = defaultFOV;
+            FindAnyObjectByType<Sanity>().grain.intensity.value = defaultGrainIntensity;
+            FindAnyObjectByType<Sanity>().grain.size.value = defaultGrainSize;
+
         }
 
         if (Mathf.Abs(transform.position.x) > 10)

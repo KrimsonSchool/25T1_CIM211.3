@@ -7,6 +7,7 @@ public class Sanity : MonoBehaviour
 
     private Vignette vg;
     private ChromaticAberration chrom;
+    public Grain grain;
 
     public int sanity;//goes up per loop, down when listen to therapy
     
@@ -15,6 +16,7 @@ public class Sanity : MonoBehaviour
     {
         ppv.profile.TryGetSettings(out vg);//starts 45%
         ppv.profile.TryGetSettings(out chrom);//starts 50%
+        ppv.profile.TryGetSettings(out grain);//starts 50%
         //grain                               //starts 50%
     }
 
@@ -23,5 +25,7 @@ public class Sanity : MonoBehaviour
     {
         vg.intensity.value += Time.deltaTime/(1000/(sanity+1));
         chrom.intensity.value += Time.deltaTime/(1000/(sanity+1));
+        
+        
     }
 }
