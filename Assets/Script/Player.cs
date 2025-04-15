@@ -26,6 +26,10 @@ public class Player : MonoBehaviour
     public GameObject pauseMenu;
 
     public AudioSource camSource;
+
+
+
+    [HideInInspector] public int progress; //mental progress to success
     
     void Start()
     {
@@ -104,6 +108,16 @@ public class Player : MonoBehaviour
                 Cursor.visible = false;
             }
             
+        }
+
+        if (progress >= 10)
+        {
+            //win!!!
+        }
+
+        if (FindFirstObjectByType<Sanity>().sanity >= 10)
+        {
+            //Lose...
         }
     }
 

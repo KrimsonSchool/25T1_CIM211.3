@@ -43,7 +43,7 @@ public class Item : MonoBehaviour
             AudioClip[] allClips = Resources.LoadAll<AudioClip>("Tapes");
             audioClip = allClips[sanity];
             FindFirstObjectByType<CassettePlayer>().PlayAudio(audioClip);
-            sanity--;
+            FindFirstObjectByType<Player>().progress++;
             
             gameObject.SetActive(false);
         }

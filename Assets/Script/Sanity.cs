@@ -26,6 +26,9 @@ public class Sanity : MonoBehaviour
         vg.intensity.value += Time.deltaTime/(1000/(sanity+1));
         chrom.intensity.value += Time.deltaTime/(1000/(sanity+1));
         
+        grain.intensity.value += Time.deltaTime/(1000/(sanity+1));
+        grain.size.value += Time.deltaTime/(1000/(sanity+1));
+        
         
     }
 }
