@@ -5,7 +5,6 @@ using UnityEngine.Serialization;
 public class RandomLoc : MonoBehaviour
 {
     LoopSystem sanityEvent;
-
     void Awake()
     {
         sanityEvent = FindFirstObjectByType<LoopSystem>();
@@ -15,6 +14,7 @@ public class RandomLoc : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //
     }
 
     private void Randomise()

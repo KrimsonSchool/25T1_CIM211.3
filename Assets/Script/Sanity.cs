@@ -10,6 +10,8 @@ public class Sanity : MonoBehaviour
     public Grain grain;
 
     public int sanity;//goes up per loop, down when listen to therapy
+
+    private int proggies;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -23,12 +25,16 @@ public class Sanity : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        vg.intensity.value += Time.deltaTime/(1000/(sanity+1));
-        chrom.intensity.value += Time.deltaTime/(1000/(sanity+1));
-        
-        grain.intensity.value += Time.deltaTime/(1000/(sanity+1));
-        grain.size.value += Time.deltaTime/(1000/(sanity+1));
-        
-        
+        proggies = FindFirstObjectByType<Player>().progress;
+
+        if (sanity - proggies > 1)
+        {
+            vg.intensity.value += Time.deltaTime / (1000 / (sanity -proggies));
+            chrom.intensity.value += Time.deltaTime / (1000 / (sanity -proggies));
+
+            grain.intensity.value += Time.deltaTime / (1000 / (sanity -proggies));
+            grain.size.value += Time.deltaTime / (1000 / (sanity -proggies));
+        }
+
     }
 }

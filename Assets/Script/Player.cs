@@ -110,7 +110,7 @@ public class Player : MonoBehaviour
             
         }
 
-        if (progress >= 10)
+        if (progress >= 7)
         {
             //win!!!
         }
