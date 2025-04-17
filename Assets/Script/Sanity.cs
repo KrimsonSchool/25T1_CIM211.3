@@ -19,7 +19,6 @@ public class Sanity : MonoBehaviour
         ppv.profile.TryGetSettings(out vg);//starts 45%
         ppv.profile.TryGetSettings(out chrom);//starts 50%
         ppv.profile.TryGetSettings(out grain);//starts 50%
-        //grain                               //starts 50%
     }
 
     // Update is called once per frame

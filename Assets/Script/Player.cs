@@ -113,11 +113,13 @@ public class Player : MonoBehaviour
         if (progress >= 7)
         {
             //win!!!
+            Win();
         }
 
         if (FindFirstObjectByType<Sanity>().sanity >= 10)
         {
             //Lose...
+            Lose();
         }
     }
 
@@ -155,5 +157,21 @@ public class Player : MonoBehaviour
         {
             ass.UnPause();
         }
+    }
+
+
+
+
+
+
+
+    public void Win()
+    {
+        
+    }
+
+    public void Lose()
+    {
+        
     }
 }
