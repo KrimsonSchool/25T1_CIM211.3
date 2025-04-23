@@ -22243,7 +22243,7 @@ GameObject:
   - component: {fileID: 740322846}
   - component: {fileID: 740322845}
   m_Layer: 0
-  m_Name: Cassete Tape
+  m_Name: Casette Tape
   m_TagString: Identifiable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38320,7 +38320,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 32.35
+  m_fontSize: 66.05
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -65588,7 +65588,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_TargetDisplay: 0
 --- !u!4 &2045373536 stripped
 Transform:
@@ -68179,7 +68179,7 @@ GameObject:
   - component: {fileID: 135642401}
   - component: {fileID: 135642397}
   m_Layer: 0
-  m_Name: CassetTape
+  m_Name: CasetteTape
   m_TagString: Identifiable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -68658,11 +68658,11 @@ SceneRoots:
   - {fileID: 1772880132}
   - {fileID: 1532874790}
   - {fileID: 1210281422}
+  - {fileID: 1953940551}
   - {fileID: 1184285260}
   - {fileID: 1239374221}
   - {fileID: 2126079238}
   - {fileID: 588733584}
-  - {fileID: 1953940551}
   - {fileID: 1137312392}
   - {fileID: 543450652368162987}
   - {fileID: 740322846}
