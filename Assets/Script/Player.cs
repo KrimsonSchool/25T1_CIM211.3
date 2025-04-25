@@ -174,7 +174,7 @@ public class Player : MonoBehaviour
 
     public void Win()
     {
-        
+        SceneManager.LoadScene("EndingCutSceneGood");
     }
 
     public void Lose()
