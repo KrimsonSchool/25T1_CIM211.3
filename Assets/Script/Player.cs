@@ -179,6 +179,6 @@ public class Player : MonoBehaviour
 
     public void Lose()
     {
-        
+        SceneManager.LoadScene("EndingCutsceneBad");
     }
 }

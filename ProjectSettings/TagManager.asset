@@ -12,6 +12,7 @@ TagManager:
   - Collectable
   - BookSpawn
   - TapeSpawn
+  - Girl
   layers:
   - Default
   - TransparentFX
