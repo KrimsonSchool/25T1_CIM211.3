@@ -6897,6 +6897,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Miku
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 107ff3c7ee9fff94d8619b9951fc9722, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11528,7 +11532,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 15c7bbfa14f71dd4e8771af2994b1bc2, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 299a955cae5b841438d5d9105deae90f, type: 2}
+      objectReference: {fileID: 2100000, guid: 2d4767e249e9c334991c33038cf8a01e, type: 2}
     - target: {fileID: 919132149155446097, guid: 15c7bbfa14f71dd4e8771af2994b1bc2, type: 3}
       propertyPath: m_Name
       value: WarningSign 1
