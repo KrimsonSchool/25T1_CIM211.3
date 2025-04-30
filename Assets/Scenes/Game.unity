@@ -21000,7 +21000,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &690327265
 Transform:
   m_ObjectHideFlags: 0
@@ -22320,7 +22320,7 @@ GameObject:
   - component: {fileID: 740322846}
   - component: {fileID: 740322845}
   m_Layer: 0
-  m_Name: Casette Tape
+  m_Name: Cassette Tape
   m_TagString: Identifiable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38397,7 +38397,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 66.05
+  m_fontSize: 26.8
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -68256,7 +68256,7 @@ GameObject:
   - component: {fileID: 135642401}
   - component: {fileID: 135642397}
   m_Layer: 0
-  m_Name: CasetteTape
+  m_Name: Cassette Tape
   m_TagString: Identifiable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
