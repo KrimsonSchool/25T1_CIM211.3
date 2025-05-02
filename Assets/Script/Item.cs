@@ -42,8 +42,14 @@ public class Item : MonoBehaviour
         {
             AudioClip[] allClips = Resources.LoadAll<AudioClip>("Tapes");
             audioClip = allClips[sanity];
-            FindFirstObjectByType<CassettePlayer>().PlayAudio(audioClip);
+
+            TextAsset[] allCaptions = Resources.LoadAll<TextAsset>("Captions");
+            string caption = allCaptions[sanity].ToString();
+            
+            FindFirstObjectByType<CassettePlayer>().PlayAudio(audioClip, caption);
             FindFirstObjectByType<Player>().progress++;
+            
+            FindFirstObjectByType<Sanity>().ProgUp();
             
             gameObject.SetActive(false);
         }
